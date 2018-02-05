@@ -1,8 +1,29 @@
 #Greenfoot properties
-#Mon Feb 05 20:05:54 ICT 2018
+#Mon Feb 05 20:11:48 ICT 2018
+target1.type=ClassTarget
 project.charset=UTF-8
-version=3.0.0
-mainWindow.y=40
-mainWindow.x=40
 mainWindow.height=600
+editor.fx.0.width=0
+readme.y=10
+readme.x=10
+version=3.0.0
+readme.height=58
+target1.typeParameters=
+world.lastInstantiated=MyWorld
+target1.height=50
+class.MyWorld.superclass=greenfoot.World
+target1.width=80
+editor.fx.0.y=0
+mainWindow.y=258
+mainWindow.x=340
+editor.fx.0.x=0
+readme.width=47
+editor.fx.0.height=0
+package.numDependencies=0
+target1.y=0
+target1.x=0
+package.numTargets=1
 mainWindow.width=850
+target1.name=MyWorld
+target1.showInterface=false
+readme.name=@README
