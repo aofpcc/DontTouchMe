@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.*;
+import java.io.*;
 /**
  * Write a description of class MyWorld here.
  * 
@@ -8,7 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -17,12 +17,17 @@ public class MyWorld extends World
     private int width;
     private int bgSize;
     private Floor[] bg;
+    private Controller controller;
+    public static Archer player;
+    private int sendDelay = 0;
+    
+    private static Archer[] anotherPlayer;
+    
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         // width , height
         super(600, 400, 1, false);
-        
         width = getWidth();
         height = getHeight();
         
@@ -32,6 +37,8 @@ public class MyWorld extends World
         w = width/bgSize + 5;
         bg = new Floor[w*h];
 
+        player = new Archer("Aof", 100 ,100);
+        addObject( player, player.getX(), player.getY() );
         // set floor 
         for(int i = 0; i < w; ++i){
             for(int j = 0; j < h; ++j){
@@ -41,8 +48,8 @@ public class MyWorld extends World
         }
         Greenfoot.setSpeed(48);
         
-        //controller = new Controller(player);
-        //addObject(controller, -100, -100);
+        controller = new Controller(player);
+        addObject(controller, -100, -100);
         
         //UI 
         //addObject(new InfoButton(), width-30, 30); 
@@ -53,17 +60,26 @@ public class MyWorld extends World
             addObject(test, test.getPosition().getX(), test.getPosition().getY());
             addObject( test.getHpBar(), test.getPosition().getX(), test.getPosition().getY()-(test.getSize().getY()/2) );
         }*/
+        try{
+            ServerConnector.post("0001", player);
+        }catch(Exception e){
+            System.out.println("Error : " + e);
+        }
+        setPaintOrder( Characters.class, Floor.class );
+        anotherPlayer = new Archer[1];
         
-        //setPaintOrder( GameUI.class, HealthBar.class );
     }
     
     public void act(){
-      /*
-      try{ 
-          ServerConnector.get();
+      try{
+          if( sendDelay++ >= 10 ){
+              //ServerConnector.get();
+              ServerConnector.put("", player);
+              sendDelay = 0;
+          }
       }catch(Exception e){
         System.out.println(e);
-      }*/
+      }
       //Greenfoot.stop();
     }
 }

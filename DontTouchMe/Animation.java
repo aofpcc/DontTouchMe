@@ -35,4 +35,8 @@ public class Animation
     public int getAllFrames(){
       return allFrames;
     }
+    
+    public int getCurrentFrame(){
+      return currentFrame;
+    }
 }

@@ -12,21 +12,22 @@ public class Controller extends Actor
      * Act - do whatever the Controller wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-  private Characters player;
+  private Archer player;
   private boolean isNotBounded;
-  public Controller(Characters player){
+  public Controller(Archer player){
     this.player = player;  
   }
-  public void act(){/*
+  public void act(){
     if( player.getSkillFrame() > 0 || player.isDead()){
         
     }
+    /*
     else if( player.getAttack() != null && Greenfoot.isKeyDown("Space") ){
         //System.out.println("Attack");
         if( player.getSkillFrame() == 0){
             player.attack();
         }
-    }
+    }*/
     else if(Greenfoot.isKeyDown("Down")){
         //if( getDirect() != 1 )
         player.setDirect(1);
@@ -40,7 +41,7 @@ public class Controller extends Actor
         //if( getDirect() != 2 )
         player.setDirect(2);
         player.setAnimation(player.getWalkingLeft());
-        if(canMove()){
+        if(canMove()){  
             if( !isNotBounded ) player.walk();
             player.setIsMoving(true);
         }
@@ -78,7 +79,7 @@ public class Controller extends Actor
     if(Greenfoot.isKeyDown("E"))
     {
         
-    }*/
+    }
   }
   public void setIsNotBounded(boolean b){
      this.isNotBounded = b;
