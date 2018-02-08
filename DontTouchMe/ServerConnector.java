@@ -73,7 +73,7 @@ public class ServerConnector
              if( MyWorld.anotherPlayer[0] == null ){
                   MyWorld.anotherPlayer[0] = new Archer( myR.getJSONObject(i).getString("name"), x, y);
              }else{
-                  MyWorld.anotherPlayer[0].setXY( x. y );
+                  MyWorld.anotherPlayer[0].setXY( x, y );
              }
              
              
@@ -113,7 +113,7 @@ public class ServerConnector
         }
     }
     public static void put(String value, Archer player) throws Exception{
-        URL url = new URL(path + id);
+        URL url = new URL(path + "0001");
         URLConnection con = url.openConnection();
         HttpURLConnection http = (HttpURLConnection)con;
         http.setRequestMethod("PUT"); // PUT is another valid option

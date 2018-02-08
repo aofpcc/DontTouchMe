@@ -21,7 +21,7 @@ public class MyWorld extends World
     public static Archer player;
     private int sendDelay = 0;
     
-    private static Archer[] anotherPlayer;
+    public static Archer[] anotherPlayer;
     
     public MyWorld()
     {    
